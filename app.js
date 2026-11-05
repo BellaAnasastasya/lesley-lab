@@ -118,6 +118,7 @@ async function updateCacheStatus(){
   if(!('caches' in window)){byId('artStatus').textContent='Browser tidak mendukung Cache Storage.';return;}
   try{const n=await countCached();byId('artProgress').value=n;
     byId('artStatus').textContent=`${n}/${all} jenis gambar tersimpan. Offline memakai gambar yang berhasil disimpan.`;
+    byId('offlinePanel').closest('.offline').style.display=n===all?'none':'';
   }catch(e){byId('artStatus').textContent='Cache tidak tersedia di mode ini.';}
 }
 async function downloadImages(){
@@ -145,7 +146,12 @@ async function downloadImages(){
     byId('artProgress').value=total;
     byId('artStatus').textContent=`Selesai. ${total}/${all} gambar di-cache. ${all-total} belum tersedia dari sumber online; teks/fallback tetap muncul.`;
   }catch(e){byId('artStatus').textContent='Gagal menyimpan semuanya; coba lagi saat online.';}
-  finally{artBusy=false;btn.disabled=false;btn.textContent='Coba simpan gambar yang belum ada';}
+  finally{
+    artBusy=false;
+    btn.disabled=false;
+    btn.textContent='Coba simpan gambar yang belum ada';
+    await updateCacheStatus();
+  }
 }
 (function init(){
   if(!DATA||DATA.heroCount!==133||DATA.heroes.length!==133||!HERO.has('Lesley')){
