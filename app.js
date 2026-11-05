@@ -19,7 +19,7 @@ const heroUrls=name=>{
 function face(urls,name,small=false){
   const first=imageSuccess.get(name)||urls[0];
   const all=[first,...urls.filter(u=>u!==first)];
-  return `<span class="face ${small?'sm':''}"><img alt="${esc(name)}" src="${esc(all[0])}" data-next="1" data-urls="${esc(encodeURIComponent(JSON.stringify(all)))}" loading="lazy" referrerpolicy="no-referrer" onerror="retryImage(this)"><span class="letters">${esc(name.slice(0,2).toUpperCase())}</span></span>`;
+  return `<span class="face ${small?'sm':''}"><img alt="${esc(name)}" src="${esc(all[0])}" data-next="1" data-urls="${esc(encodeURIComponent(JSON.stringify(all)))}" loading="lazy" referrerpolicy="no-referrer" onerror="retryImage(this)"></span>`;
 }
 window.retryImage=img=>{
   let urls;
