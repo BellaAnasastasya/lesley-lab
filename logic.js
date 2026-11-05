@@ -38,9 +38,9 @@
     const physicalRisk=cap(physical*.88+dive*.45-protection*.25,0,35);
     const magicRisk=cap(magic*.92+en('C')*.09-protection*.24,0,35);
     const slow=enemies.reduce((s,h)=>s+((h.cc||[]).includes('slow')?1:0),0) + en('Z')*.25;
-    const physicalEmergency=physicalRisk>=7.1 && (dive>=3.6||en('B')>=5);
+    const physicalEmergency=physicalRisk>=14 && dive>=9 && protection<6 && en('D')>=6;
     const magicEmergency=magicRisk>=7.4 && (dive>=3.4||en('B')>=5);
-    const hardPhysical=physicalRisk>=5.0 && (dive>=2.8 || physicalRisk>=7.5);
+    const hardPhysical=physicalEmergency;
     const hardMagic=magicRisk>=5.3 && (dive>=2.7 || magicRisk>=7.8);
     const hardHeal=heal>=3.35;
     const hardControl=crowd>=5.0 || stuns>=5;
