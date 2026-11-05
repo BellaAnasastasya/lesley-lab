@@ -1,8 +1,8 @@
 /* Versioned offline shell + persistent cache of online artwork. */
 'use strict';
-const SHELL='lesley-lab-shell-v1';
+const SHELL='lesley-lab-shell-v2';
 const ART='lesley-lab-art-v1';
-const CORE=['./','./index.html','./data.js','./logic.js','./app.js','./manifest.webmanifest'];
+const CORE=['./','./index.html','./data.js','./logic.js','./app.js','./manifest.webmanifest','./icon-180.png','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(SHELL).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()));
 });

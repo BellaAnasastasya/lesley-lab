@@ -156,7 +156,7 @@ async function downloadImages(){
   renderBuild();byId('download').onclick=downloadImages;updateCacheStatus();
   if('serviceWorker' in navigator && (location.protocol==='https:' || location.hostname==='localhost')){
     navigator.serviceWorker.register('./sw.js').then(()=>navigator.serviceWorker.ready)
-      .then(()=>preparePwaIcons()).catch(()=>{});
+      .catch(()=>{});
   }
 })();
 // PWA icons are generated from the same online Lesley portrait, not bundled image assets.
