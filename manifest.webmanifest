@@ -1,0 +1,26 @@
+{
+  "id": "./",
+  "name": "Lesley Lab — Adaptive Sniper",
+  "short_name": "Lesley Lab",
+  "description": "Generator build Lesley sesuai draft musuh dan teman. Offline setelah gambar diunduh.",
+  "lang": "id",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#0c1020",
+  "icons": [
+    {
+      "src": "./pwa-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./pwa-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
